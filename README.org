@@ -1,0 +1,4 @@
+* My spacemacs config
+  This is my personal spaemacs configuration
+** reference
+  zilongshanren https://github.com/zilongshanren/spaemacs-private.git
