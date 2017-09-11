@@ -6,7 +6,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ahs-case-fold-search nil t)
- '(command-log-mode-window-size 50)
  '(company-dabbrev-minimum-length 3)
  '(company-dabbrev-other-buffers nil)
  '(company-show-numbers t)
@@ -20,7 +19,6 @@
  '(expand-region-contract-fast-key "V")
  '(expand-region-exclude-text-mode-expansions (quote (html-mode nxml-mode web-mode)))
  '(expand-region-reset-fast-key "r")
- '(global-command-log-mode nil)
  '(helm-buffer-max-length 56)
  '(helm-move-to-line-cycle-in-source t)
  '(ivy-height 18)
@@ -40,11 +38,12 @@
  '(org-reverse-note-order t)
  '(package-selected-packages
    (quote
-    (nodejs-repl lispy zoutline etags-select cmake-font-lock org-mac-link blog-admin names ctable smartparens projectile parent-mode flx iedit anzu evil goto-chg undo-tree popup diminish counsel swiper ivy cmake-ide levenshtein hydra highlight spinner pkg-info epl bind-map bind-key packed async f dash s avy yapfify web-mode web-beautify unfill tide typescript-mode tagedit slim-mode scss-mode sayid sass-mode ranger rainbow-mode rainbow-identifiers pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements origami org-pomodoro alert log4e gntp org-brain mwim live-py-mode less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc impatient-mode simple-httpd hy-mode htmlize haml-mode gnuplot ggtags fuzzy flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck evil-org emmet-mode deft cython-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-c-headers company-anaconda company color-identifiers-mode coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg cider-eval-sexp-fu cider seq queue clojure-mode auto-yasnippet yasnippet anaconda-mode pythonic helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org symon string-inflection spaceline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-purpose ivy-hydra info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump define-word counsel-projectile column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link)))
+    (wrap-region visual-regexp-steroids visual-regexp tiny peep-dired highlight-global helm-github-stars helm helm-core find-file-in-project discover-my-major makey browse-at-remote 4clojure nodejs-repl lispy zoutline etags-select cmake-font-lock org-mac-link blog-admin names ctable smartparens projectile parent-mode flx iedit anzu evil goto-chg undo-tree popup diminish counsel swiper ivy cmake-ide levenshtein hydra highlight spinner pkg-info epl bind-map bind-key packed async f dash s avy yapfify web-mode web-beautify unfill tide typescript-mode tagedit slim-mode scss-mode sayid sass-mode ranger rainbow-mode rainbow-identifiers pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements origami org-pomodoro alert log4e gntp org-brain mwim live-py-mode less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc impatient-mode simple-httpd hy-mode htmlize haml-mode gnuplot ggtags fuzzy flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck evil-org emmet-mode deft cython-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-c-headers company-anaconda company color-identifiers-mode coffee-mode cmake-mode clojure-snippets clj-refactor inflections edn multiple-cursors paredit peg cider-eval-sexp-fu cider seq queue clojure-mode auto-yasnippet yasnippet anaconda-mode pythonic helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org symon string-inflection spaceline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-purpose ivy-hydra info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump define-word counsel-projectile column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link)))
  '(paradox-github-token t)
  '(ring-bell-function (quote ignore))
  '(sp-show-pair-from-inside t t)
  '(tags-revert-without-query t)
+ '(tramp-syntax (quote default) nil (tramp))
  '(vc-follow-symlinks t)
  '(web-mode-markup-indent-offset 2)
  '(ycmd-extra-conf-handler (quote load)))
@@ -55,8 +54,6 @@
  ;; If there is more than one, they won't work right.
  '(ahs-definition-face ((t (:foreground "#d33682" :slant normal :weight bold))))
  '(ahs-face ((t (:foreground "#d33682" :weight bold))))
- '(command-log-command ((t (:foreground "dark magenta"))))
- '(command-log-key ((t (:foreground "dark cyan"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(iedit-occurrence ((t (:inherit cursor))))
