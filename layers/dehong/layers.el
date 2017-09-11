@@ -10,6 +10,7 @@
 ;;; License: GPLv3
 
 (configuration-layer/declare-layers '(
+                                      dehong-programming
                                       dehong-ui
                                       dehong-org
                                       ))
