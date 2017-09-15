@@ -8,7 +8,7 @@
 
 (defconst dehong-org-packages
   '(
-    (org :location built-in)
+    org
     org-mac-link
     org-pomodoro
     deft
