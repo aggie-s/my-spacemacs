@@ -205,7 +205,6 @@ unwanted space when exporting org-mode to html."
       (setq org-agenda-files (list org-agenda-dir))
 
       (with-eval-after-load 'org-agenda
-        (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
         (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
           "." 'spacemacs/org-agenda-transient-state/body)
         )

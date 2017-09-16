@@ -413,7 +413,6 @@
             (if (and (equal major-mode 'c++-mode)
                      (ignore-errors
                        (save-excursion
-                         (goto-char (c-langelem-pos langelem))
                          ;; Detect "[...](" or "[...]{". preceded by "," or "(",
                          ;;   and with unclosed brace.
                          (looking-at ".*[(,][ \t]*\\[[^]]*\\][ \t]*[({][^}]*$"))))

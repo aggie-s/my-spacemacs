@@ -85,28 +85,9 @@
                             (set-window-configuration wnd))))
             (error "no more than 2 files should be marked"))))
 
-      (define-key dired-mode-map "e" 'ora-ediff-files)
-
       (defvar dired-filelist-cmd
         '(("vlc" "-L")))
 
-      ;; FIXME: evilify dired mode will lead to startup warnings
-      (evilified-state-evilify-map dired-mode-map
-        :mode dired-mode
-        :bindings
-        (kbd "C-k") 'dehong/dired-up-directory
-        "<RET>" 'dired-find-alternate-file
-        "E" 'dired-toggle-read-only
-        "C" 'dired-do-copy
-        "<mouse-2>" 'my-dired-find-file
-        "`" 'dired-open-term
-        "p" 'peep-dired-prev-file
-        "n" 'peep-dired-next-file
-        "z" 'dired-get-size
-        "c" 'dired-copy-file-here
-        "J" 'counsel-find-file
-        "f" 'dehong/open-file-with-projectile-or-counsel-git
-        ")" 'dired-omit-mode)
       )))
 
 

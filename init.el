@@ -44,7 +44,7 @@ values."
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      ;; docker
      deft
-     (org :variables org-want-todo-bindings t)
+     ;; (org :variables org-want-todo-bindings t)
      ;; react
      (python :variables
              python-test-runner '(nose pytest))
