@@ -48,20 +48,6 @@
   (interactive "p")
   (dehong/indent-region -4))
 
-;; https://github.com/syohex/emacs-browser-refresh/blob/master/browser-refresh.el
-(defun dehong/browser-refresh--chrome-applescript ()
-  (interactive)
-  (do-applescript
-   (format
-    "
-  tell application \"Google Chrome\"
-    set winref to a reference to (first window whose title does not start with \"Developer Tools - \")
-    set winref's index to 1
-    reload active tab of winref
-  end tell
-" )))
-
-
 (define-minor-mode
   shadowsocks-proxy-mode
   :global t

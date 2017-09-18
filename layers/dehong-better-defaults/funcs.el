@@ -4,28 +4,6 @@
 ;;
 ;;; License: GPLv3
 
-;;http://emacsredux.com/blog/2013/03/26/smarter-open-line/
-(defun dehong/smart-open-line ()
-  "Insert an empty line after the current line.
-Position the cursor at its beginning, according to the current mode."
-  (interactive)
-  (move-end-of-line nil)
-  (newline-and-indent))
-
-
-(defun dehong/rename-file-and-buffer ()
-  "Rename the current buffer and file it is visiting."
-  (interactive)
-  (let ((filename (buffer-file-name)))
-    (if (not (and filename (file-exists-p filename)))
-        (message "Buffer is not visiting a file!")
-      (let ((new-name (read-file-name "New name: " filename)))
-        (cond
-         ((vc-backend filename) (vc-rename-file filename new-name))
-         (t
-          (rename-file filename new-name t)
-          (set-visited-file-name new-name t t)))))))
-
 (defun dehong/yank-to-end-of-line ()
   "Yank to end of line."
   (interactive)

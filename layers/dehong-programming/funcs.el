@@ -4,41 +4,6 @@
 ;;
 ;;; License: GPLv3
 
-(defun dehong/comment-box (b e)
-  "Draw a box comment around the region but arrange for the region
-to extend to at least the fill column. Place the point after the
-comment box."
-  (interactive "r")
-  (let ((e (copy-marker e t)))
-    (goto-char b)
-    (end-of-line)
-    (insert-char ?  (- fill-column (current-column)))
-    (comment-box b e 1)
-    (goto-char e)
-    (set-marker e nil)))
-
-
-
-;; "http://stackoverflow.com/questions/2242572/emacs-todo-indicator-at-left-side"
-(defun dehong/annotate-todo ()
-  "put fringe marker on TODO: lines in the curent buffer"
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "TODO:" nil t)
-      (let ((overlay (make-overlay (- (point) 5) (point))))
-        (overlay-put overlay 'before-string (propertize "A"
-                                                        'display '(left-fringe right-triangle)))))))
-
-
-;;js2-mode enhancement
-(defun dehong/js2-which-function ()
-  ;; clean the imenu cache
-  ;; @see http://stackoverflow.com/questions/13426564/how-to-force-a-rescan-in-imenu-by-a-function
-  (setq imenu--index-alist nil)
-  (which-function-mode t)
-  (which-function))
-
 (defun dehong/run-current-file ()
   "Execute the current file.
 For example, if the current buffer is the file x.py, then it'll call 「python x.py」 in a shell.
@@ -82,8 +47,6 @@ version 2015-08-21"
             (message "Running…")
             (async-shell-command ξcmd-str "*dehong/run-current-file output*"))
         (message "No recognized program file suffix for this file.")))))
-
-
 
 (defun my-web-mode-indent-setup ()
   (setq web-mode-markup-indent-offset 2)
@@ -151,12 +114,6 @@ version 2015-08-21"
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
 
-(defun my-which-function ()
-  ;; clean the imenu cache
-  ;; @see http://stackoverflow.com/questions/13426564/how-to-force-a-rescan-in-imenu-by-a-function
-  (setq imenu--index-alist nil)
-  (which-function))
-
 (defun js2-imenu-make-index ()
   (interactive)
   (save-excursion
@@ -194,48 +151,3 @@ version 2015-08-21"
 (defun my-doxymacs-font-lock-hook ()
   (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
       (doxymacs-font-lock)))
-
-(defun my-project-name-contains-substring (REGEX)
-  (let ((dir (if (buffer-file-name)
-                 (file-name-directory (buffer-file-name))
-               "")))
-    (string-match-p REGEX dir)))
-
-
-(defvar my-tags-updated-time nil)
-
-(defun my-create-tags-if-needed (SRC-DIR &optional FORCE)
-  "return the full path of tags file"
-  (let ((dir (file-name-as-directory (file-truename SRC-DIR)))
-        file)
-    (setq file (concat dir "TAGS"))
-    (when (spacemacs/system-is-mswindows)
-      (setq dir (substring dir 0 -1)))
-    (when (or FORCE (not (file-exists-p file)))
-      (message "Creating TAGS in %s ..." dir)
-      (shell-command
-       (format "ctags -f %s -e -R %s" file dir)))
-    file))
-
-(defun my-update-tags ()
-  (interactive)
-  "check the tags in tags-table-list and re-create it"
-  (dolist (tag tags-table-list)
-    (my-create-tags-if-needed (file-name-directory tag) t)))
-
-
-(defun my-auto-update-tags-when-save (prefix)
-      (interactive "P")
-      (cond
-       ((not my-tags-updated-time)
-        (setq my-tags-updated-time (current-time)))
-
-       ((and (not prefix)
-             (< (- (float-time (current-time)) (float-time my-tags-updated-time)) 300))
-        ;; < 300 seconds
-        (message "no need to update the tags")
-        )
-       (t
-        (setq my-tags-updated-time (current-time))
-        (my-update-tags)
-        (message "updated tags after %d seconds." (- (float-time (current-time)) (float-time my-tags-updated-time))))))
