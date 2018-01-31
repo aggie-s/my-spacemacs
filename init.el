@@ -47,6 +47,7 @@ values."
              python-test-runner '(nose pytest))
      html
      javascript
+     scala
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
