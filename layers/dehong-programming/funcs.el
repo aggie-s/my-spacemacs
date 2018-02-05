@@ -29,6 +29,7 @@ version 2015-08-21"
             ("ml" . "ocaml")
             ("vbs" . "cscript")
             ("tex" . "pdflatex")
+            ("scala" . "scala")
             ("lua" . "lua")
             ))
          (ξfname (buffer-file-name))
