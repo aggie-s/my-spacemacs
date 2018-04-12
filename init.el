@@ -48,6 +48,7 @@ values."
      html
      javascript
      scala
+     scheme
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)

@@ -30,6 +30,7 @@ version 2015-08-21"
             ("vbs" . "cscript")
             ("tex" . "pdflatex")
             ("scala" . "scala")
+            ("groovy" . "groovy")
             ("lua" . "lua")
             ))
          (ξfname (buffer-file-name))
